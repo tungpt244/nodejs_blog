@@ -3,6 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const handlebars = require('express-handlebars');
+const cookieParser = require('cookie-parser')
 const app = express();
 const port = 3000;
 
@@ -13,6 +14,8 @@ const db = require('./config/db');
 db.connect();
 
 app.use(express.static(path.join(__dirname,'public')));
+
+app.use(cookieParser());
 
 app.use(express.urlencoded({
   extended: true

@@ -1,0 +1,19 @@
+<div class="mt-4">
+    <h2>LOGIN</h2>
+    <br>
+    {{#each err}}
+    <div class="alert alert-danger" role="alert">{{this}}</div>
+    {{/each}}
+    <form method = "POST" action="">      
+        <div class="form-floating mb-3">
+        <input name ="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+        <input name ="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

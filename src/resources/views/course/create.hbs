@@ -1,20 +1,21 @@
 <div class="mt-4">
-    <h3>Creat New Course</h3>
+    <h2>Creat New Course</h2>
+    <br>
     <form method="POST" action="/course/store">
         <div class="mb-3">
-            <label for="name" class="form-label">Tên khóa học</label>
+            <label for="name" class="form-label fw-bold">Name</label>
             <input name="name" type="text" class="form-control" id="name">
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Mo ta</label>
+            <label for="description" class="form-label fw-bold">Description</label>
             <input name = "description" type="text" class="form-control" id="description">
         </div>
         <div class="mb-3">
-            <label for="videoID" class="form-label">videoID</label>
+            <label for="videoID" class="form-label fw-bold">Video_ID</label>
             <input name = "videoID" type="text" class="form-control" id="id">
         </div>
         <div class="mb-3">
-            <label for="level" class="form-label">Trinh do</label>
+            <label for="level" class="form-label fw-bold">Level</label>
             <select name="level" id="level" class="form-control">
                 <option selected >-- Choose one --</option>
                 <option value="1">One</option>

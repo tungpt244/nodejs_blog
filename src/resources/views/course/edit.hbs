@@ -1,20 +1,21 @@
 <div class="mt-4">
-    <h3>Update Course</h3>
+    <h2>Update Course</h2>
+    <br>
     <form method="POST" action="/course/{{course._id}}?_method=PUT">
         <div class="mb-3">
-            <label for="name" class="form-label">Tên khóa học</label>
+            <label for="name" class="form-label fw-bold">Name</label>
             <input name="name" type="text" class="form-control" value = "{{course.name}}" id="name">
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Mo ta</label>
+            <label for="description" class="form-label fw-bold">Description</label>
             <textarea name = "description" type="text" class="form-control" id="description">{{course.description}}</textarea>
         </div>
         <div class="mb-3">
-            <label for="videoID" class="form-label">videoID</label>
+            <label for="videoID" class="form-label fw-bold">Video_ID</label>
             <input name = "videoID" type="text" class="form-control" value = "{{course.videoID}}" id="id">
         </div>
         <div class="mb-3">
-            <label for="level" class="form-label">Trinh do</label>
+            <label for="level" class="form-label fw-bold">Level</label>
             <select name="level" id="level" class="form-control">
                 <option selected >{{course.level}}</option>
                 <option value="1">1</option>

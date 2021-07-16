@@ -46,8 +46,17 @@ class CourseController {
 
     //[PUT] /course/:id
     update(req, res, next) {
+        const formData = req.body;
+        formData.image = `https://img.youtube.com/vi/${req.body.videoID}/sddefault.jpg`;
         Course.updateOne({_id: req.params.id}, req.body)
             .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+    }
+
+    //DELETE] /course/:id
+    destroy(req, res, next) {
+        Course.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }
