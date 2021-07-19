@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const { mutipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const md5 = require('md5');
 
 class UserController {
 
@@ -11,21 +12,26 @@ class UserController {
 
     loginpost(req, res, next) {
         User.findOne({email: req.body.email})
-            .then(user => { 
+            .then(user => {   
                 user = mongooseToObject(user);
+                var hash = md5(req.body.password);
+
                 if(!user) { 
                     res.render('user/login', {
                     err: ['User does not exits!']
                     })
                     return 
                 }
-                if(user.password !== req.body.password)  {
+
+                if(hash != user.password)  {
                     res.render('user/login', {
-                        err: ['Wrong password!']
+                        err: ['Wrong password!'],
+                        values: req.body.email
                         })
                     return
                 }
-                res.cookie('userID', user._id)
+
+                res.cookie('userID', user._id, {signed : true})
                 res.redirect('/me/stored/courses')
             })
             .catch(next)

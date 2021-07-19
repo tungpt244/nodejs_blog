@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
@@ -15,7 +17,8 @@ db.connect();
 
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use(cookieParser());
+//Set Environment Variables
+app.use(cookieParser(process.env.SEESION_SECERTS));
 
 app.use(express.urlencoded({
   extended: true

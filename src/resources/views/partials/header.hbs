@@ -8,12 +8,13 @@
       <form class="d-flex">
         <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
       </form>
+      {{#if user}}
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item d-flex align-items-center dropdown">
           <img class = "user-img" style = "border-radius: 50%; height: 32px"
-          src="https://lh3.googleusercontent.com/ogw/ADea4I64cNLVwRI3Vh0SdO-vb5AAgGpJWs-z3aVgtsPjpg=s32-c-mo" style = "">
+          src="{{user.image}}" style = "">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Shirou
+            {{user.name}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/course/create">Create new course</a></li>
@@ -23,6 +24,7 @@
           </ul>
         </li>
       </ul>
+      {{/if}}
       
     </div>
   </div>

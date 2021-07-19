@@ -4,9 +4,10 @@
     {{#each err}}
     <div class="alert alert-danger" role="alert">{{this}}</div>
     {{/each}}
-    <form method = "POST" action="">      
+    <div class="d-flex">
+        <form method = "POST" action="" class="flex-fill me-4">      
         <div class="form-floating mb-3">
-        <input name ="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input name ="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value = {{values}}>
         <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
@@ -16,4 +17,7 @@
         <br>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <iframe src="https://discord.com/widget?id=652540815930949683&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+    </div>
 </div>
