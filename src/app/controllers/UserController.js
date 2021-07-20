@@ -36,6 +36,19 @@ class UserController {
             })
             .catch(next)
     }
+
+    create(req, res, next) {
+        res.render('user/create')
+    }
+
+    postCreate(req, res, next) {
+        const formData = req.body;
+        formData.image = req.file.path.split('\\').slice(1).join('/');
+        const user = new User(req.body);
+        user.save()
+        // .then(() => res.redirect('/'))
+        // .catch(err=> {})
+    }
 }
 
 module.exports = new UserController;

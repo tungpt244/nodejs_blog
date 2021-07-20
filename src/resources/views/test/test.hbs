@@ -1,0 +1,31 @@
+    <div class="container">
+        <div class="row">
+            {{#each data}}
+            <div class="col-sm-3 mt-4">
+                <div class="card" style="width: 18rem">
+                <img src="{{this.image}}" class="card-img-top" style="height: 100px">
+                <div class="card-body">
+                    <p class="card-title">Name: {{this.name}}</p>
+                    <p class="card-text">Email: {{this.email}}</p>
+                    <p class="card-text">Gender: {{this.gender}}</p>
+                    <p class="card-text">IP adress: {{this.ip_address}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="/test-data?page=1"><<</a></li>
+                <li class="page-item"><a class="page-link" href="/test-data?page={{pre}}"><</a></li>
+                <li class="page-item"><a class="page-link" href="/test-data?page={{pre}}">{{pre}}</a></li>
+                <li class="page-item"><a class="page-link" href="#">{{page}}</a></li>
+                <li class="page-item"><a class="page-link" href="/test-data?page={{next}}">{{next}}</a></li>
+                <li class="page-item"><a class="page-link" href="/test-data?page={{next}}">></a></li>
+                <li class="page-item"><a class="page-link" href="/test-data?page={{last}}">>></a></li>
+
+            </ul>
+        </nav>
+    </div>

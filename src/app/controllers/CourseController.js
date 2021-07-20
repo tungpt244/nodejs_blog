@@ -1,4 +1,6 @@
 const Course = require('../models/Course');
+var multer  = require('multer')
+var upload = multer({ dest: 'public/uploads/' })
 const { mongooseToObject } = require('../../util/mongoose');
 
 class CourseController {
