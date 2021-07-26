@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router(); 
-const authMiddleware = require('../app/middleware/auth.middleware');
 const courseController = require('../app/controllers/CourseController');
 
 router.get('/create', courseController.create);

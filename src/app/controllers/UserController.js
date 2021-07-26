@@ -1,15 +1,17 @@
 const User = require('../models/User');
-const { mutipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 const md5 = require('md5');
+
 
 class UserController {
 
-    // [GET] /search
+    // [GET] /user/login
     login(req, res, next) {
         res.render('user/login');
         res.clearCookie('userID');
     }
 
+    //[POST] user/login
     loginpost(req, res, next) {
         User.findOne({email: req.body.email})
             .then(user => {   
@@ -37,17 +39,20 @@ class UserController {
             .catch(next)
     }
 
+    //[GET] user/create
     create(req, res, next) {
         res.render('user/create')
     }
 
+    //[POST] /user/create
     postCreate(req, res, next) {
         const formData = req.body;
-        formData.image = req.file.path.split('\\').slice(1).join('/');
-        const user = new User(req.body);
+        formData.image = '/' + req.file.path.split('\\').slice(1).join('/');
+        formData.password = md5(req.body.password)
+        const user = new User(formData)
         user.save()
-        // .then(() => res.redirect('/'))
-        // .catch(err=> {})
+            .then(() => {res.redirect('/')})
+            .catch(err => {})
     }
 }
 

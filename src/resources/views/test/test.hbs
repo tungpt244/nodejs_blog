@@ -1,15 +1,15 @@
     <div class="container">
         <div class="row">
             {{#each data}}
-            <div class="col-sm-3 mt-4">
-                <div class="card" style="width: 18rem">
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card" style="">
                 <img src="{{this.image}}" class="card-img-top" style="height: 100px">
                 <div class="card-body">
                     <p class="card-title">Name: {{this.name}}</p>
                     <p class="card-text">Email: {{this.email}}</p>
                     <p class="card-text">Gender: {{this.gender}}</p>
                     <p class="card-text">IP adress: {{this.ip_address}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="/test-data/{{this._id}}" class="btn btn-primary">Add</a>
                 </div>
                 </div>
             </div>
